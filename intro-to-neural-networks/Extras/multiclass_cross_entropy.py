@@ -1,9 +1,11 @@
 import numpy as np
 
+#TODO Check correctness!!!
+
 # A function that takes as input two lists Y, P,
 # and returns the float corresponding to their multiclass_cross-entropy.
-# def multiclass_cross_entropy(Y, P):
-#     return -np.sum([y_ij * np.log(p_ij) for y, p in zip(Y, P) for y_ij, p_ij in zip(y, p)])
+def multiclass_cross_entropy(Y, P):
+    return -np.sum([y_ij * np.log(p_ij) for y, p in zip(Y, P) for y_ij, p_ij in zip(y, p)])
 
 # Other Solution 1
 # def multiclass_cross_entropy(Y, P):
