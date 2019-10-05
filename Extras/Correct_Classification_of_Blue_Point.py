@@ -1,5 +1,12 @@
 import pandas as pd
 
+# -- CODE SOLVE --
+# For the second example, where the line is described by 3x1 + 4x2 - 10 = 0, 
+# if the learning rate was set to 0.1, 
+# how many times would you have to apply the perceptron trick 
+# to move the line to a position where the blue point (DESIRED_OUTPUT = 1, BLUE_POINT[1,1] = 0), 
+# at (1, 1), is correctly classified?
+
 # 0.2 = 0.20000000000000001
 # That's why we must use Decimal
 # Otherwise the result will be different
@@ -34,22 +41,9 @@ while (flag):
         weight1 += test_input[0] * rate
         weight2 += test_input[1] * rate
         bias += input_bias * rate
-        counter += 1
-
-        print(output, rate, weight1, weight2, bias, counter)
-
-        flag = not ((correct_output - output) == 0)
         
-        # is_correct_string = 'Yes' if output == correct_output else 'No'
-        # outputs.append([test_input[0], test_input[1], linear_combination, output, is_correct_string])
+        flag = not ((correct_output - output) == 0)
+        if(flag):
+            counter += 1
 
-print(weight1, weight2, bias, counter)
-
-# # Print output
-# num_wrong = len([output[4] for output in outputs if output[4] == 'No'])
-# output_frame = pd.DataFrame(outputs, columns=['Input-1', '  Input-2', '  Linear Combination', '  Activation Output', '  Is Correct'])
-# if not num_wrong:
-#     print('Nice!  You got it all correct.\n')
-# else:
-#     print('You got {} wrong.  Keep trying!\n'.format(num_wrong))
-# print(output_frame.to_string(index=False))
+print(counter)
